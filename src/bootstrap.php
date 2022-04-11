@@ -17,8 +17,5 @@ if ($status == PHP_SESSION_NONE) {
 /**
  * Naive Router Logic
  */
-
-
-
 require "./src/pages/" . $_GET['page'] . ".php";
 
