@@ -1,0 +1,9 @@
+{
+    "require": {
+        "php": ">=7.0.0",
+        "filp/whoops": "^2.14",
+        "league/plates": "^3.4",
+        "nesbot/carbon": "^2.57",
+        "phpoffice/phpspreadsheet": "1.10.0"
+    }
+}
