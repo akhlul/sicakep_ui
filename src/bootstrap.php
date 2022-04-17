@@ -5,6 +5,7 @@
  */
 
 require "./src/functions/database.php";
+require "./src/functions/tinyrouter.php";
 require "./src/functions/utilities.php";
 require "./src/functions/render.php";
 
@@ -17,5 +18,5 @@ if ($status == PHP_SESSION_NONE) {
 /**
  * Naive Router Logic
  */
-require "./src/pages/" . $_GET['page'] . ".php";
-
+// require "./src/pages/" . $_GET['page'] . ".php";
+require "./src/routes.php";

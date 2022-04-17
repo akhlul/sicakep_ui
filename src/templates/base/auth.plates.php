@@ -8,14 +8,14 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="assets/css/tabler.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/@tabler/icons@latest/iconfont/tabler-icons.min.css">
+    <link rel="stylesheet" href="assets/iconfont/tabler-icons.min.css">
 </head>
 
 <body class="">
 
     <?= $this->section('content') ?>
-
-    <script type=module src="assets/js/tabler.esm.css"></script>
+    <i class="ti ti-align-left"></i>
+    <script type=module src="assets/js/tabler.esm.js"></script>
 </body>
 
 </html>
