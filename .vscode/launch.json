@@ -1,0 +1,17 @@
+{
+    "configurations": [
+        {
+            "type": "php",
+            "request": "launch",
+            "name": "Listen For Xdebug",
+            "port": 9003
+        },
+        {
+            "type": "php",
+            "request": "launch",
+            "name": "Listen For Xdebug",
+            "port": 9003
+        },
+
+    ]
+}

@@ -6,20 +6,20 @@ function route (
     ...$args 
 ) 
 {
-    echo $_SERVER['REQUEST_METHOD'] . " " . $pattern . '</br>';
     if ($_SERVER['REQUEST_METHOD'] == strtoupper($method)) {
 
         $presets = [
-            ':all' => '.*',
-            ':alpha' => '[a-zA-Z]+',
-            ':any' => '[^/]+',
-            ':num' => '\d+|-\d+',
+            ':all' => '(.*)',
+            ':alpha' => '([a-zA-Z]+)',
+            ':username' => '([a-zA-Z.-]+)',
+            ':any' => '([^/]+)',
+            ':num' => '(\d+|-\d+)',
         ];
 
         foreach ($presets as $shortcode => $regex) {
-            $pattern = strtr($pattern, [$shortcode => '(' . $regex . ')']);
+            $pattern = strtr($pattern, [$shortcode => $regex]);
         }
-        $pattern = '~^' . $pattern . '$~i';
+        $pattern = '~^' . $pattern . '/$~i';
 
 
         $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
@@ -29,12 +29,12 @@ function route (
 
         $route_eval = [];
         foreach ($args as $index => $arg) {
-            if (gettype($arg) == "object") {
+            if(gettype($arg) == "object") {
                 $route_eval['closure'] = $arg;
-            } else {
-                $route_eval['page'] = substr($arg, 0, 5) === "page#" ?: $arg;
-                $route_eval['group'] = substr($arg, 0, 5) === "group#" ?: $arg;
-                // echo $index . gettype($arg) . "<br>";
+            } else if(substr($arg, 0, 5) === "page#") {
+                $route_eval['page'] = $arg;
+            } else if(substr($arg, 0, 5) === "group#") {
+                $route_eval['group'] = $arg;
             }
         }
         
@@ -42,36 +42,29 @@ function route (
         if (isset($route_eval['group'])){
             $pattern = substr($pattern, 0, -3) . "~i";
         }
-
-        preg_match($pattern, $uri, $matches);
-
-        var_dump($route_eval);
-        echo '</br>';
-        print_r($matches);
-        echo '</br></br>';
         
-        // // if no match
-        // if (!$matches) return;
+        // dump($route_eval);
+        // dump($pattern);
+        // dump($uri);
+        preg_match($pattern, $uri, $route_match);
+        // dump($route_match);
+        
+        // if no match
+        if (!$route_match) return;
 
-        // // if has closures then run ONLY the closure
-        // if (!empty($route_eval['closure'])) {
-        //     $route_eval['closure']($matches);
-        //     die();
-        // }
+        // if has closures then run ONLY the closure
+        if (!empty($route_eval['closure'])) {
+            $route_eval['closure']($route_match);
+            die();
+        }
 
-        // if (!empty($route_eval['page'])) {
-        //     print_r($route_eval['page']);
-        //     // $page = explode("#", $route_eval['page'][0]);
-        //     // print_r($page);
-        //     // require $GLOBALS['ROUTER_PAGE_PATH'] . '/' . $page . ".php";
-        //     die();
-        // }
+        if (isset($route_eval['page'])) {
+            $page = explode("#", $route_eval['page']);
 
-        // $output = $args[1]($matches);
-        // if (isset($output)) {
-        //     require $_GLOBALS['router_folder'] . '/' . $page . ".php";
-        //     die();
-        // }
+            require_once "./src/bootstrap.php";
+            require $GLOBALS['ROUTER_PAGE_PATH'] . '/' . $page[1] . ".php";
+            die();
+        }
     }
 }
 

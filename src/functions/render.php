@@ -7,4 +7,6 @@ $templates->loadExtension(new League\Plates\Extension\URI($_SERVER['REQUEST_URI'
 
 $templates->addFolder('base', './src/templates/base');
 
-// echo $templates->render('home', ['name' => 'Jonathan']);
+$templates->registerFunction('assets', function ($str) {
+    return "/assets/" . $str;
+});

@@ -19,4 +19,9 @@
 
 $data_template = [];
 
-echo $templates->render('home', $data_template);
+dump( __FILE__);
+dump( __DIR__);
+dump( $db);
+echo 'Home';
+
+// echo $templates->render('home', $data_template);

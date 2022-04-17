@@ -21,6 +21,6 @@ date_default_timezone_set('Asia/Jakarta');
 $today = date("YmdHis");
 
 /**
- * Register the login routes
+ * Register the routes
  */
-include "./src/bootstrap.php";
+include "./src/routes.php";
