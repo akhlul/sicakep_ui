@@ -60,9 +60,16 @@ function route (
 
         if (isset($route_eval['page'])) {
             $page = explode("#", $route_eval['page']);
-
+            
+            $page_php = "";
+            foreach($page as $idx => $pg) {
+                if ($idx == 0) continue; 
+                $page_php = $page_php . "/" . $pg; 
+            }
+            $page_php = $page_php . ".php";
+            // dump($page_php);
             require_once "./src/bootstrap.php";
-            require $GLOBALS['ROUTER_PAGE_PATH'] . '/' . $page[1] . ".php";
+            require $GLOBALS['ROUTER_PAGE_PATH'] . $page_php;
             die();
         }
     }
