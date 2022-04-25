@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="<?= $this->assets('iconfont/tabler-icons.min.css') ?>">
 </head>
 
-<body class="theme-light">
+<body class="">
 
     <div class="page">
         <aside class="navbar navbar-vertical navbar-expand-lg navbar-light">
