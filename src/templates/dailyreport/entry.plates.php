@@ -64,12 +64,12 @@
 <div class="page-body">
     <div class="container-fluid">
         <div class="card">
-            <div class="card-header">
-                <div>
+            <div class="card-header row gap-3">
+                <div class="col-sm-12 col-md">
                     <h3 class="card-title">Daftar Laporan Harian</h3>
                     <p class="card-subtitle">Senin, 3 Januari 2022</h3>
                 </div>
-                <div class="card-actions">
+                <div class="col-sm-12 col-md-auto">
                     <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-create-daily-report">
                         <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
                         <i class="fs-2 ti ti-plus"></i>
@@ -165,7 +165,7 @@
                                     <i class="fs-2 ti ti-edit-circle"></i>
                                 </td>
                                 <td class="text-center text-decoration-none">
-                                    <a href="?page=laporanwfh2&amp;action=hapus2&amp;id=115701" onclick="return confirm(&quot;Apakah Anda yakin akan menghapus item ini?&quot;);">
+                                    <a href="?page=laporanwfh2&amp;action=hapus2&amp;id=115701" onclick="return confirm('Apakah Anda yakin akan menghapus item ini?');">
                                         <i class="fs-2 ti ti-circle-x"></i>
                                     </a>
                                 </td>
@@ -195,7 +195,7 @@
                                     <i class="fs-2 ti ti-edit-circle"></i>
                                 </td>
                                 <td class="text-center text-decoration-none">
-                                    <a href="?page=laporanwfh2&amp;action=hapus2&amp;id=115701" onclick="return confirm(&quot;Apakah Anda yakin akan menghapus item ini?&quot;);">
+                                    <a href="?page=laporanwfh2&amp;action=hapus2&amp;id=115701" onclick="return confirm('Apakah Anda yakin akan menghapus item ini?');">
                                         <i class="fs-2 ti ti-circle-x"></i>
                                     </a>
                                 </td>

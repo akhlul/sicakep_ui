@@ -8,10 +8,10 @@
 $data_template = array_merge(
     [
         'head' => [
-            'head_title' => "Daftar Laporan Harian - SICAKEP"
+            'head_title' => "Daftar Master Pekerjaan - SICAKEP"
         ]
     ],
     []
 );
 
-echo $templates->render('dailyreport/collection', $data_template);
+// echo $templates->render('dailyreport/collection', $data_template);

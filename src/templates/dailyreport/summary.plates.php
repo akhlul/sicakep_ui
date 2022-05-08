@@ -28,9 +28,19 @@
                             <span class="input-group-text" for="input-select-bulan">
                                 <i class="ti ti-calendar-time"></i>
                             </span>
-                            <select class="input form-select" id="input-select-bulan" placeholder="bulan">
-                                <option value="1">Januari</option>
-                                <option value="2">Februari</option>
+                            <select name="bulanabsen" class="input form-select" id="input-select-bulan" placeholder="Pilih bulan...">
+                                <option value="01">Januari</option>
+                                <option value="02">Februari</option>
+                                <option value="03">Maret</option>
+                                <option value="04">April</option>
+                                <option value="05">Mei</option>
+                                <option value="06">Juni</option>
+                                <option value="07">Juli</option>
+                                <option value="08">Agustus</option>
+                                <option value="09">September</option>
+                                <option value="10">Oktober</option>
+                                <option value="11">November</option>
+                                <option value="12">Desember</option>
                             </select>
                         </div>
                     </div>
@@ -42,6 +52,7 @@
                     </button>
                 </div>
             </div>
+            
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-vcenter table-nowrap">
@@ -49,78 +60,76 @@
                     <table class="table table-bordered table-condensed tableFixHead">
                         <thead>
                             <tr>
-                                <th class="align-middle text-center" rowspan="2">No</th>
-                                <th class="align-middle text-center" rowspan="2">NIP</th>
-                                <th class="align-middle text-center" rowspan="2">Nama</th>
-                                <th colspan="2" style="vertical-align:middle;">
-                                    <div align="center"><strong>03 Januari</strong></div>
-                                </th>
-                                <th colspan="2" style="vertical-align:middle;">
+                                <th class="text-center align-middle" rowspan="2">No</th>
+                                <th class="text-center align-middle" rowspan="2">NIP</th>
+                                <th class="text-center align-middle" rowspan="2">Nama</th>
+                                <th class="text-center align-middle" colspan="2" nowrap> 03 Januari </th>
+                                <th class="align-middle" colspan="2" nowrap>
                                     <div align="center"><strong>04 Januari</strong></div>
                                 </th>
-                                <th colspan="2" style="vertical-align:middle;">
+                                <th class="align-middle" colspan="2" nowrap>
                                     <div align="center"><strong>05 Januari</strong></div>
                                 </th>
-                                <th colspan="2" style="vertical-align:middle;">
+                                <th class="align-middle" colspan="2" nowrap>
                                     <div align="center"><strong>06 Januari</strong></div>
                                 </th>
-                                <th colspan="2" style="vertical-align:middle;">
+                                <th class="align-middle" colspan="2" nowrap>
                                     <div align="center"><strong>07 Januari</strong></div>
                                 </th>
-                                <th colspan="2" style="vertical-align:middle;">
+                                <th class="align-middle" colspan="2" nowrap>
                                     <div align="center"><strong>10 Januari</strong></div>
                                 </th>
-                                <th colspan="2" style="vertical-align:middle;">
+                                <th class="align-middle" colspan="2" nowrap>
                                     <div align="center"><strong>11 Januari</strong></div>
                                 </th>
-                                <th colspan="2" style="vertical-align:middle;">
+                                <th class="align-middle" colspan="2" nowrap>
                                     <div align="center"><strong>12 Januari</strong></div>
                                 </th>
-                                <th colspan="2" style="vertical-align:middle;">
+                                <th class="align-middle" colspan="2" nowrap>
                                     <div align="center"><strong>13 Januari</strong></div>
                                 </th>
-                                <th colspan="2" style="vertical-align:middle;">
+                                <th class="align-middle" colspan="2" nowrap>
                                     <div align="center"><strong>14 Januari</strong></div>
                                 </th>
-                                <th colspan="2" style="vertical-align:middle;">
+                                <th class="align-middle" colspan="2" nowrap>
                                     <div align="center"><strong>17 Januari</strong></div>
                                 </th>
-                                <th colspan="2" style="vertical-align:middle;">
+                                <th class="align-middle" colspan="2" nowrap>
                                     <div align="center"><strong>18 Januari</strong></div>
                                 </th>
-                                <th colspan="2" style="vertical-align:middle;">
+                                <th class="align-middle" colspan="2" nowrap>
                                     <div align="center"><strong>19 Januari</strong></div>
                                 </th>
-                                <th colspan="2" style="vertical-align:middle;">
+                                <th class="align-middle" colspan="2" nowrap>
                                     <div align="center"><strong>20 Januari</strong></div>
                                 </th>
-                                <th colspan="2" style="vertical-align:middle;">
+                                <th class="align-middle" colspan="2" nowrap>
                                     <div align="center"><strong>21 Januari</strong></div>
                                 </th>
-                                <th colspan="2" style="vertical-align:middle;">
+                                <th class="align-middle" colspan="2" nowrap>
                                     <div align="center"><strong>24 Januari</strong></div>
                                 </th>
-                                <th colspan="2" style="vertical-align:middle;">
+                                <th class="align-middle" colspan="2" nowrap>
                                     <div align="center"><strong>25 Januari</strong></div>
                                 </th>
-                                <th colspan="2" style="vertical-align:middle;">
+                                <th class="align-middle" colspan="2" nowrap>
                                     <div align="center"><strong>26 Januari</strong></div>
                                 </th>
-                                <th colspan="2" style="vertical-align:middle;">
+                                <th class="align-middle" colspan="2" nowrap>
                                     <div align="center"><strong>27 Januari</strong></div>
                                 </th>
-                                <th colspan="2" style="vertical-align:middle;">
+                                <th class="align-middle" colspan="2" nowrap>
                                     <div align="center"><strong>28 Januari</strong></div>
                                 </th>
-                                <th colspan="2" style="vertical-align:middle;">
+                                <th class="align-middle" colspan="2" nowrap>
                                     <div align="center"><strong>31 Januari</strong></div>
                                 </th>
                             </tr>
                             <tr>
-                                <td class="text-center align-middle">
+                                <td class="text-center align-middle tooltip-jml-pekerjaan">
                                     <i class="ti ti-tallymarks"></i>
                                 </td>
-                                <td class="text-center align-middle">
+                                <td class="text-center align-middle tooltip-jml-laporan">
                                     <i class="ti ti-hourglass-high"></i>
                                 </td>
                                 <td class="text-center align-middle">
@@ -12965,15 +12974,21 @@
 </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/litepicker/dist/litepicker.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/luxon@2.0.2/build/global/luxon.min.js"></script>
-<script>
-    window.picker = new Litepicker({
-        element: document.getElementById('datepicker-inline'),
-        // inlineMode: true,
-        // position: "right"
-    });
+<template id="tooltip-jml-pekerjaan">
+    Jumlah pekerjaan
+</template>
 
-    var mydate = luxon.DateTime.fromFormat("Mar 2 1982", "LLL d yyyy").setLocale('id').toFormat("dd MMMM yyyy")
-    console.log(mydate)
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script>
+    const tooltipTriggerJmlPekerjaan = [].slice.call(document.querySelectorAll('.tooltip-jml-pekerjaan'));
+    const tooltipJmlPekerjaan = document.querySelector('#tooltip-jml-pekerjaan');
+
+    // Pass the button, the tooltip, and some options, and Popper will do the
+    // magic positioning for you:
+    tooltipTriggerJmlPekerjaan.map((el) => {
+        Popper.createPopper(el, "Jumlah pekerjaan", {
+            placement: 'right',
+        });
+    })
+
 </script>
