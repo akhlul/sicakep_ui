@@ -14,4 +14,4 @@ $data_template = array_merge(
     []
 );
 
-// echo $templates->render('dailyreport/collection', $data_template);
+echo $templates->render('dailyreport/collection', $data_template);
