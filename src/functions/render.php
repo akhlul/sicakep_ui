@@ -3,7 +3,10 @@
 use \League\Plates\Engine;
 
 $templates = new Engine('./src/templates', 'plates.php');
-$templates->loadExtension(new League\Plates\Extension\URI($_SERVER['REQUEST_URI']));
+
+$templates->loadExtension(new League\Plates\Extension\URI($_SERVER['PATH_INFO']));
+
+// $engine->loadExtension(new League\Plates\Extension\URI($_SERVER['PATH_INFO']));
 
 $templates->addFolder('base', './src/templates/base');
 

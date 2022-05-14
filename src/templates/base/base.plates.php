@@ -12,9 +12,9 @@
     <link rel="stylesheet" href="<?= $this->assets('iconfont/tabler-icons.min.css') ?>">
 </head>
 
-<body class="">
+<body class="theme-light">
 
-    <div class="page">
+    <div class="overflow-auto page">
         <aside class="navbar navbar-vertical navbar-expand-lg navbar-light">
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu">
@@ -29,16 +29,17 @@
                 <div class="flex-row navbar-nav d-lg-none">
                     <div class="nav-item dropdown">
                         <a href="#" class="p-0 nav-link d-flex lh-1 text-reset" data-bs-toggle="dropdown" aria-label="Open user menu">
-                            <span class="avatar avatar-sm" style="background-image: url(https://community.bps.go.id/images/avatar/54279.JPG)"></span>
-                            <div class="d-none d-xl-block ps-2">
-                                <div>Arifin Jafar SST</div>
-                                <div class="mt-1 small text-muted">Pranata Komputer Ahli Muda</div>
+                            <span 
+                                class="avatar avatar-sm" 
+                                style="background-image: url(<?= $session->get('avatar') ?>)"></span>
+                            <div class="d-none d-md-block ps-2">
+                                <div><?= $session->get('nama') ?></div>
+                                <div class="mt-1 small text-muted"><?= $session->get('jabatan') ?></div>
                             </div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                             <a href="#" class="dropdown-item">Set status</a>
-                            <a href="#" class="dropdown-item">Profile &amp;
-                                account</a>
+                            <a href="#" class="dropdown-item">Profile &amp; account</a>
                             <a href="#" class="dropdown-item">Feedback</a>
                             <div class="dropdown-divider"></div>
                             <a href="#" class="dropdown-item">Settings</a>
@@ -53,7 +54,7 @@
                             <a class="pb-3 nav-link d-flex lh-1 text-reset" href="#">
                                 <span class="avatar" style="background-image: url(https://community.bps.go.id/images/avatar/54279.JPG)"></span>
                                 <div class="d-none d-xl-block ps-2">
-                                    <div>Arifin Jafar SST</div>
+                                    <div><?= $session->get('nama') ?></div>
                                     <div class="mt-1 small text-muted">Pranata Komputer Ahli Muda</div>
                                 </div>
                             </a>
@@ -168,8 +169,8 @@
                                 </span>
                             </a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
+                        <li class="nav-item dropdown <?= $this->uri(1, "entry", "active") ?>">
+                            <a class="nav-link dropdown-toggle" data-bs-menu="entry" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="true">
                                 <span class="nav-link-icon d-md-none d-lg-inline-block">
                                     <i class="fs-2 ti ti-package"></i>
                                 </span>
@@ -180,25 +181,25 @@
                             <div class="dropdown-menu">
                                 <div class="dropdown-menu-columns">
                                     <div class="dropdown-menu-column">
-                                        <a class="dropdown-item" href="/entry/target">
+                                        <a class="dropdown-item <?= $this->uri("/entry/target", "active") ?>" href="/entry/target">
                                             Entri Target/ Penugasan
                                         </a>
                                         <!-- CHANGEME: Digabung ke Entri Target Penugasan saja -->
-                                        <a class="dropdown-item" href="/entry/target/collective">
+                                        <a class="dropdown-item" <?= $this->uri("/entry/target/collective", "active") ?>" href="/entry/target/collective">
                                             Entri Kolektif
                                         </a>
-                                        <a class="dropdown-item" href="/entry/report">
+                                        <a class="dropdown-item" <?= $this->uri("/entry/report", "active") ?>" href="/entry/report">
                                             Entri Laporan/ Realisasi
                                         </a>
-                                        <a class="dropdown-item" href="/entry/grade">
+                                        <a class="dropdown-item" <?= $this->uri("/entry/grade", "active") ?>" href="/entry/grade">
                                             Entri Penilaian
                                         </a>
                                     </div>
                                 </div>
                             </div>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
+                        <li class="nav-item dropdown <?= $this->uri(1, "print", "active") ?>">
+                            <a class=" nav-link dropdown-toggle" data-bs-menu="print" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
                                 <span class="nav-link-icon d-md-none d-lg-inline-block">
                                     <i class="fs-2 ti ti-package"></i>
                                 </span>
@@ -209,10 +210,10 @@
                             <div class="dropdown-menu">
                                 <div class="dropdown-menu-columns">
                                     <div class="dropdown-menu-column">
-                                        <a class="dropdown-item" href="/print/CKP">
+                                        <a class="dropdown-item <?= $this->uri("/print/CKP", "active") ?>" href="/print/CKP">
                                             CKP
                                         </a>
-                                        <a class="dropdown-item" href="/print/SKP">
+                                        <a class="dropdown-item <?= $this->uri("/print/SKP", "active") ?>" href="/print/SKP">
                                             SKP
                                         </a>
                                     </div>
@@ -496,15 +497,30 @@
         </aside>
 
 
-        <div class="page-wrapper theme-light">
+        <div class="page-wrapper">
             <?= $this->section('content') ?>
         </div>
     </div>
 
 
     <?= $this->debugbarRenderer("render") ?>
-    <script type=module src="<?= $this->assets('js/tabler.esm.js') ?>"></script>
+    <script type="module" src="<?= $this->assets('js/tabler.js') ?>"></script>
+    <script type="module">
+        window.ready = function(fn) {
+            if (document.readyState != 'loading') {
+                fn();
+            } else {
+                document.addEventListener('DOMContentLoaded', fn);
+            }
+        }
 
+        window.ready(() => {
+            var selected_menu = "<?= $this->uri(1) ?>"
+            console.log(selected_menu)
+            window.bsmenu = document.querySelector(".dropdown-toggle[data-bs-menu=" + selected_menu + "]")
+            window.bsmenu.click()
+        })
+    </script>
 </body>
 
 </html>

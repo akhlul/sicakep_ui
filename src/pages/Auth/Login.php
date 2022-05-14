@@ -1,5 +1,9 @@
 <?php
 
+if ($app_session->get("username")) {
+    redirect('/home');
+}
+
 /**
  * Merging Data
  *
@@ -9,7 +13,9 @@ $data_template = array_merge(
    [
         'head' => [
             'head_title' => "Masuk - SICAKEP"
-        ]
+        ],
+
+        'session' => $app_session
     ],
     []
 );

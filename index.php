@@ -16,9 +16,11 @@ $whoops->register();
 /**
  * Initiate Session
  */
-session_start();
-date_default_timezone_set('Asia/Jakarta');
-$today = date("YmdHis");
+// require_once "./src/functions/session.php";
+// date_default_timezone_set('Asia/Jakarta');
+// $today = date("YmdHis");
+// session_start();
+
 
 /**
  * Register the routes

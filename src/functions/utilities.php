@@ -1,7 +1,6 @@
 <?php
 
-define('TAHUN',2022);
-define('BASE_URL', "http://localhost:7777/");
+define('TAHUN', 2022);
 
 define('BULAN_PAIR', [
     ["01", "Januari"],
@@ -78,9 +77,7 @@ function bulanTo2Digit($bln){
     }
 }
 
-function redirect($url) {
-    Header("Location: " . BASE_URL . $url);
-}
+
 
 function namaseksi($seksi){
     switch ($seksi) {

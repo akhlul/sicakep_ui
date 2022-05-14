@@ -1,14 +1,20 @@
 <?php
 
-function route (
+/**
+ * define route, harus menentukan ROUTER_PAGE_PATH terlebih dahulu
+ */
+function route(
     string $method,
     string $pattern,
-    ...$args 
-) 
-{
-    if ($_SERVER['REQUEST_METHOD'] == strtoupper($method)) {
+    ...$args
+) {
+    if (
+        $_SERVER['REQUEST_METHOD'] == strtoupper($method) 
+        || "ALL" == strtoupper($method)
+    ) {
 
         $presets = [
+            ':blank' => '',
             ':all' => '(.*)',
             ':alpha' => '([a-zA-Z]+)',
             ':username' => '([a-zA-Z.-]+)',
@@ -29,26 +35,22 @@ function route (
 
         $route_eval = [];
         foreach ($args as $index => $arg) {
-            if(gettype($arg) == "object") {
+            if (gettype($arg) == "object") {
                 $route_eval['closure'] = $arg;
-            } else if(substr($arg, 0, 5) === "page#") {
+            } else if (substr($arg, 0, 5) === "page#") {
                 $route_eval['page'] = $arg;
-            } else if(substr($arg, 0, 5) === "group#") {
+            } else if (substr($arg, 0, 5) === "group#") {
                 $route_eval['group'] = $arg;
             }
         }
-        
+
         // if has prefix then modify the pattern
-        if (isset($route_eval['group'])){
+        if (isset($route_eval['group'])) {
             $pattern = substr($pattern, 0, -3) . "~i";
         }
-        
-        // dump($route_eval);
-        // dump($pattern);
-        // dump($uri);
+
         preg_match($pattern, $uri, $route_match);
-        // dump($route_match);
-        
+
         // if no match
         if (!$route_match) return;
 
@@ -60,19 +62,26 @@ function route (
 
         if (isset($route_eval['page'])) {
             $page = explode("#", $route_eval['page']);
-            
+
             $page_php = "";
-            foreach($page as $idx => $pg) {
-                if ($idx == 0) continue; 
-                $page_php = $page_php . "/" . $pg; 
+            foreach ($page as $idx => $pg) {
+                if ($idx == 0) continue;
+                $page_php = $page_php . "/" . $pg;
             }
             $page_php = $page_php . ".php";
-            // dump($page_php);
             require_once "./src/bootstrap.php";
-            require $GLOBALS['ROUTER_PAGE_PATH'] . $page_php;
+            require ROUTER_PAGE_PATH . $page_php;
             die();
         }
     }
+}
+
+/**
+ * menuju ke url tertentu, harus menentukan BASE_URL terlebih dahulu
+ */
+function redirect(String $url)
+{
+    Header("Location: " . BASE_URL . $url);
 }
 
 
