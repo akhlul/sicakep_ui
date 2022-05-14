@@ -2399,8 +2399,9 @@ textarea.form-control-lg {
   background-color: #e2e8f0;
 }
 .form-select:-moz-focusring {
-  color: transparent;
-  text-shadow: 0 0 0 inherit;
+  /* color: transparent; */
+  /* text-shadow: 0 0 0 inherit;  */
+  color: var(--tblr-body-color);
 }
 
 .form-select-sm {
