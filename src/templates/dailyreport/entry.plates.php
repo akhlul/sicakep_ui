@@ -46,7 +46,7 @@
                             <input type="text" class="form-control" name="nama" value="Arifin Jafar" readonly>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Bulan Tanggal</label>
+                            <label class="form-label">Tanggal</label>
                             <input type="text" class="form-control" id="datepicker-inline" name="tgl_kegiatan" value="">
                             <!-- <div class="datepicker-inline" id="datepicker-inline"></div> -->
                         </div>
@@ -64,7 +64,7 @@
 <div class="page-body">
     <div class="container-fluid">
         <div class="card">
-            <div class="card-header row gap-3">
+            <div class="gap-3 card-header row">
                 <div class="col-sm-12 col-md">
                     <h3 class="card-title">Daftar Laporan Harian</h3>
                     <p class="card-subtitle">Senin, 3 Januari 2022</h3>
