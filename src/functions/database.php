@@ -1,14 +1,9 @@
 <?php
 
-$hostname = "127.0.0.1";
-$username = "root_ckp1800";
-$password = "123456";
-$database = "local__ckp18002022";
-
-// $hostname = "rumahweb.net";
-// $username = "ckpt6832_sicakep";
-// $password = "sicakep";
-// $database = "ckpt6832__ckp18002022";
+$hostname = $_ENV['DB_HOST'];
+$username = $_ENV['DB_USERNAME'];
+$password = $_ENV['DB_PASSWORD'];
+$database = $_ENV['DB_DATABASE'];
 
 // $mysqli = new mysqli( $hostname, $username, $password, $database );
 // if ($mysqli->connect_errno) {

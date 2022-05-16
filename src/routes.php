@@ -7,7 +7,7 @@ require_once "./src/functions/tinyrouter.php";
 
 // TODO: put all define into ./src/variables.php
 define('ROUTER_PAGE_PATH', __DIR__ . "/pages");
-define('BASE_URL', 'http://127.0.0.1:7777');
+define('BASE_URL', $_ENV['BASE_URL']);
 
 
 route('GET',  '/login',     "page#Auth#Login");

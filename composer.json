@@ -8,7 +8,8 @@
         "maximebf/debugbar": "^1.18",
         "duncan3dc/sessions": "^2.0",
         "panique/pdo-debug": "^0.2.0",
-        "fightbulc/moment": "^1.33"
+        "fightbulc/moment": "^1.33",
+        "vlucas/phpdotenv": "^5.4"
     },
     "require-dev": {
         "symfony/var-dumper": "^5.4"

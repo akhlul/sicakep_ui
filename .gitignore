@@ -1,1 +1,13 @@
-/vendor
+_old/
+vendor/
+
+*.sql
+.vscode
+.DS_Store
+
+env
+.env
+.env.development
+.env.production
+
+# index.php

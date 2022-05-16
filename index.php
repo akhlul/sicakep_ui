@@ -4,6 +4,12 @@ declare(strict_types=1);
 
 include_once __DIR__ . '/vendor/autoload.php';
 
+/**
+ * Reading environment configurations
+ */
+$dotenv = \Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->safeLoad();
+
 error_reporting(E_ALL);
 
 /**
