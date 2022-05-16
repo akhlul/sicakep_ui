@@ -8,8 +8,10 @@
 $data_template = array_merge(
     [
         'head' => [
-            'head_title' => "Entri Target/ Penugasan - SICAKEP"
-        ]
+            'head_title' => "Entri Target/ Penugasan - SICAKEP",
+            'session' => $app_session
+        ],
+        'session' => $app_session
     ],
     []
 );

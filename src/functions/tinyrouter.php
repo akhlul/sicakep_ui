@@ -27,7 +27,6 @@ function route(
         }
         $pattern = '~^' . $pattern . '/$~i';
 
-
         $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
         if (substr($uri, -1) != "/") {
             $uri = $uri . "/";
@@ -50,6 +49,10 @@ function route(
         }
 
         preg_match($pattern, $uri, $route_match);
+        // print_r();
+        // echo $uri . " parsed with ". $pattern ."<br>";
+        // print_r($route_match);
+        // echo "<br>";
 
         // if no match
         if (!$route_match) return;
@@ -82,6 +85,14 @@ function route(
 function redirect(String $url)
 {
     Header("Location: " . BASE_URL . $url);
+}
+
+/**
+ * refresh halaman ini beberapa saat
+ */
+function refreshBrowser() 
+{
+    echo "<script>window.location.reload();</script>";
 }
 
 

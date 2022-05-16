@@ -23,7 +23,7 @@ if ($result) {
     $user = (object) $result;
     // add auth sessions
 
-    $avatar = "https://community.bps.go.id/images/avatar/" . $session->get('foto');
+    $avatar = "https://community.bps.go.id/images/avatar/" . $user->aktif;
     $app_session->set([
         "username" => $user->username,
         "id" => $user->id,

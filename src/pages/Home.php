@@ -1,5 +1,9 @@
 <?php
 
+if (!$app_session->get("username")) {
+    redirect('/login');
+}
+
 /**
  * Merging Data
  *
@@ -11,8 +15,8 @@ $data_template = array_merge(
             'head_title' => "Beranda - SICAKEP",
             'session' => $app_session
         ],
-
         'session' => $app_session
+
     ],
     []
 );

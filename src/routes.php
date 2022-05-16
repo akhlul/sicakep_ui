@@ -9,14 +9,24 @@ require_once "./src/functions/tinyrouter.php";
 define('ROUTER_PAGE_PATH', __DIR__ . "/pages");
 define('BASE_URL', 'http://127.0.0.1:7777');
 
+
 route('GET',  '/login',     "page#Auth#Login");
 route('POST', '/login',     "page#Auth#UserLogin");
 route('GET',  '/logout',    "page#Auth#UserLogout");
 
+route('GET', '',        "page#Home");
 route('GET', '/home',   "page#Home");
 
+route('GET', '/api/chart', "page#API#ChartData");
+
 route('ALL', '/dailyreport/:all', "group#", function ($r) {
-    route('GET', '/dailyreport/entry', "page#DailyReport#Entry");
+    route('GET',  '/dailyreport/entry',             "page#DailyReport#Entry");
+    route('POST', '/dailyreport/entry',            "page#DailyReport#Entry#Create");
+    route('GET',  '/dailyreport/entry/:num',        "page#DailyReport#Entry#Edit");
+    route('POST', '/dailyreport/entry/:num',        "page#DailyReport#Entry#Update");
+    route('GET',  '/dailyreport/entry/:num/delete', "page#DailyReport#Entry#Remove");
+    route('POST', '/dailyreport/entry/:num/delete', "page#DailyReport#Entry#Delete");
+
     route('GET', '/dailyreport/collection', "page#DailyReport#Collection");
     route('GET', '/dailyreport/summary', "page#DailyReport#Summary");
 });

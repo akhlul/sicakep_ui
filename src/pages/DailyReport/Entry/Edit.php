@@ -1,17 +1,16 @@
 <?php
 
 /**
- * show index table
+ * show single laporan
  * 
  */
 
 $dailyreport_sql = "SELECT id_laporan, id_pegawai, tanggal, uraian, volume, satuan_volume, 
-				durasi, satuan_durasi, pemberi_tugas, status, s.satuan, nama, sw.waktu 
+				durasi, satuan_durasi, pemberi_tugas, status, satuan ,nama, waktu 
 		FROM (
 			SELECT * 
 			FROM laporanwfh_2 wf 
-			WHERE id_pegawai = :id_pegawai AND 
-					tanggal= :tanggal
+			WHERE id_laporan = :id_laporan
 		) a 
 		LEFT JOIN satuan s 
 			ON a.satuan_volume=s.id_satuan 
@@ -21,12 +20,10 @@ $dailyreport_sql = "SELECT id_laporan, id_pegawai, tanggal, uraian, volume, satu
 			ON a.satuan_durasi=sw.id_satuan_waktu";
 $stmt = $db->prepare($dailyreport_sql);
 $stmt->execute([
-    // "id_pegawai" => '340058566',
-    // "tanggal" => '2022-02-02'
-    "id_pegawai" => $app_session->getSet('entri-id-pegawai'),
-    "tanggal" => $app_session->getSet('entri-tanggal-keg')
+    "id_laporan" => $route_match[1],
 ]);
-$dailyreport_list = $stmt->fetchAll(PDO::FETCH_OBJ);
+$dailyreport = $stmt->fetch(PDO::FETCH_OBJ);
+// dd($dailyreport);   
 
 $satuan_kuantitas_sql = "SELECT * from satuan order by satuan asc";
 $satuan_kuantitas = $db->query($satuan_kuantitas_sql)->fetchAll(PDO::FETCH_OBJ);
@@ -51,33 +48,14 @@ $pemberi_tugas = prepare_and_run($db,
     PDO::FETCH_OBJ
 );
 
-
-// if ($res = $mysqli->query($sql)) {
-//     while ($obj = $res->fetch_object()) {
-//         echo "<option value='" . $obj->id_satuan . "'>" . $obj->satuan . "</option>";
-//     }
-// }
-
-
-$app_session->set('request_uri', $_SERVER['REQUEST_URI']);
-
-/**
- * Merging Data
- *
- * root put in the last so we can override when needed
- */
 $data_template = array_merge(
     [
-        'head' => [
-            'head_title' => "Daftar Master Pekerjaan - SICAKEP",
-            'session' => $app_session
-        ],
-        'session' => $app_session,
-        'dailyreport_list' => $dailyreport_list,
+        'dailyreport' => $dailyreport,
         'satuan_kuantitas' => $satuan_kuantitas,
         'pemberi_tugas' => $pemberi_tugas
     ],
     []
 );
 
-echo $templates->render('dailyreport/entry', $data_template);
+// use htmx 
+echo $templates->render('dailyreport/x-entry-edit', $data_template);

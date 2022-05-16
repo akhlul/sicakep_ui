@@ -8,8 +8,10 @@
 $data_template = array_merge(
     [
         'head' => [
-            'head_title' => "Daftar Master Pekerjaan - SICAKEP"
-        ]
+            'head_title' => "Daftar Master Pekerjaan - SICAKEP",
+            'session' => $app_session
+        ],
+        'session' => $app_session
     ],
     []
 );

@@ -29,9 +29,7 @@
                 <div class="flex-row navbar-nav d-lg-none">
                     <div class="nav-item dropdown">
                         <a href="#" class="p-0 nav-link d-flex lh-1 text-reset" data-bs-toggle="dropdown" aria-label="Open user menu">
-                            <span 
-                                class="avatar avatar-sm" 
-                                style="background-image: url(<?= $session->get('avatar') ?>)"></span>
+                            <span class="avatar avatar-sm" style="background-image: url(<?= $session->get('avatar') ?>)"></span>
                             <div class="d-none d-md-block ps-2">
                                 <div><?= $session->get('nama') ?></div>
                                 <div class="mt-1 small text-muted"><?= $session->get('jabatan') ?></div>
@@ -52,7 +50,7 @@
                     <ul class="navbar-nav pt-lg-3">
                         <li class="nav-item">
                             <a class="pb-3 nav-link d-flex lh-1 text-reset" href="#">
-                                <span class="avatar" style="background-image: url(https://community.bps.go.id/images/avatar/54279.JPG)"></span>
+                                <span class="avatar" style="background-image: url(<?= $session->get('avatar') ?>)"></span>
                                 <div class="d-none d-xl-block ps-2">
                                     <div><?= $session->get('nama') ?></div>
                                     <div class="mt-1 small text-muted">Pranata Komputer Ahli Muda</div>
@@ -506,20 +504,20 @@
     <?= $this->debugbarRenderer("render") ?>
     <script type="module" src="<?= $this->assets('js/tabler.js') ?>"></script>
     <script type="module">
-        window.ready = function(fn) {
-            if (document.readyState != 'loading') {
-                fn();
-            } else {
-                document.addEventListener('DOMContentLoaded', fn);
-            }
+    window.ready = function(fn) {
+        if (document.readyState != 'loading') {
+            fn();
+        } else {
+            document.addEventListener('DOMContentLoaded', fn);
         }
+    }
 
-        window.ready(() => {
-            var selected_menu = "<?= $this->uri(1) ?>"
-            console.log(selected_menu)
-            window.bsmenu = document.querySelector(".dropdown-toggle[data-bs-menu=" + selected_menu + "]")
-            window.bsmenu.click()
-        })
+    window.ready(() => {
+        var selected_menu = "<?= $this->uri(1) ?>"
+        console.log(selected_menu)
+        window.bsmenu = document.querySelector(".dropdown-toggle[data-bs-menu=" + selected_menu + "]")
+        window.bsmenu.click()
+    })
     </script>
 </body>
 

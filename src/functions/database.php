@@ -28,3 +28,12 @@ try {
 } catch (\PDOException $e) {
 	throw new \PDOException($e->getMessage(), (int)$e->getCode());
 }
+
+/**
+ * simply wrapper for database->prepare->execute-fetchall
+ */
+function prepare_and_run($db, $prepared_sql, $executed_array, $fetchmode = PDO::FETCH_ASSOC) {
+	$stmt = $db->prepare($prepared_sql);
+	$stmt->execute($executed_array);
+	return $stmt->fetchAll($fetchmode);
+}

@@ -1,0 +1,29 @@
+{
+    "editor.semanticHighlighting.enabled": true,
+    "highlight.regexes": {
+        "(<\\?=[\\w\\W]+?\\?>)": {
+            "regexFlags": "g",
+            "filterLanguageRegex": "php",
+            "filterFileRegex": ".*\\.plates\\.php",
+            "decorations": [
+                {
+                    "backgroundColor": "#fff381",
+                    "color": "#1f1f1f",
+                    "fontWeight": "bold"
+                },
+            ]
+        },
+        "(<\\?php[\\w\\W]+?\\?>)": {
+            "regexFlags": "g",
+            "filterLanguageRegex": "php",
+            "filterFileRegex": ".*\\.plates\\.php",
+            "decorations": [
+                {
+                    "backgroundColor": "#fff381",
+                    "color": "#1f1f1f",
+                    "fontWeight": "bold"
+                },
+            ]
+        }
+    },
+}

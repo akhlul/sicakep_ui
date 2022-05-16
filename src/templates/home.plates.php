@@ -47,7 +47,6 @@
                                 <div class="row align-items-center">
                                     <div class="col-auto">
                                         <span class="text-white bg-blue avatar">
-                                            <!-- Download SVG icon from http://tabler-icons.io/i/currency-dollar -->
                                             <i class="fs-1 ti ti-currency-dollar"></i>
                                         </span>
                                     </div>
@@ -69,14 +68,7 @@
                                 <div class="row align-items-center">
                                     <div class="col-auto">
                                         <span class="text-white bg-green avatar">
-                                            <!-- Download SVG icon from http://tabler-icons.io/i/shopping-cart -->
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                <circle cx="6" cy="19" r="2"></circle>
-                                                <circle cx="17" cy="19" r="2"></circle>
-                                                <path d="M17 17h-11v-14h-2"></path>
-                                                <path d="M6 5l14 1l-1 7h-13"></path>
-                                            </svg>
+                                            <i class="fs-1 ti ti-shopping-cart"></i>
                                         </span>
                                     </div>
                                     <div class="col">
@@ -97,17 +89,12 @@
                                 <div class="row align-items-center">
                                     <div class="col-auto">
                                         <span class="text-white bg-twitter avatar">
-                                            <!-- Download SVG icon from http://tabler-icons.io/i/brand-twitter -->
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z"></path>
-                                            </svg>
+                                            <i class="fs-1 ti ti-brand-twitter"></i>
                                         </span>
                                     </div>
                                     <div class="col">
                                         <div class="font-weight-medium">
-                                            623 Shares
-                                        </div>
+                                            623 Shares </div>
                                         <div class="text-muted">
                                             16 today
                                         </div>
@@ -122,11 +109,7 @@
                                 <div class="row align-items-center">
                                     <div class="col-auto">
                                         <span class="text-white bg-facebook avatar">
-                                            <!-- Download SVG icon from http://tabler-icons.io/i/brand-facebook -->
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                <path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"></path>
-                                            </svg>
+                                            <i class="fs-1 ti ti-brand-facebook"></i>
                                         </span>
                                     </div>
                                     <div class="col">
@@ -147,8 +130,9 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <h3 class="card-title">Jumlah Assignment</h3>
-                        <div id="chart-mentions" class="chart-lg" style="min-height: 240px;"></div>
+                        <h3 class="card-title">
+                            Jumlah Pekerjaan, Realisasi, dan DL</h3>
+                        <div id="chart-pekerjaan-realisasi-dl" class="chart-lg" style="min-height: 240px;"></div>
                     </div>
                 </div>
             </div>
@@ -156,8 +140,8 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
-                        <h3 class="card-title">Traffic summary</h3>
-                        <div id="chart-demo-bar" class="chart-lg" style="min-height: 240px;"></div>
+                        <h3 class="card-title">Jumlah pegawai</h3>
+                        <div id="chart-jumlah-pegawai" class="chart-lg" style="min-height: 240px;"></div>
                     </div>
                 </div>
             </div>
@@ -170,170 +154,164 @@
 
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        window.ApexCharts && (new ApexCharts(document.getElementById('chart-demo-bar'), {
-            chart: {
-                type: "bar",
-                fontFamily: 'inherit',
-                height: 240,
-                parentHeightOffset: 0,
-                toolbar: {
-                    show: false,
-                },
-                animations: {
-                    enabled: false
-                },
-                stacked: true,
+//  $result_cols = [
+//         "labels" => [],
+//         "pekerjaan_per_peg" => [],
+//         "realisasi_per_peg" => [],
+//         "dl_per_peg" => [],
+//     ];
+
+document.addEventListener("DOMContentLoaded", async function() {
+    const response = await fetch('/api/chart?type=getJumlahPekerjaanPerKako&tahun=2022&bulan=01')
+    const resData = (await response.json()).data
+    window.ApexCharts && (new ApexCharts(document.getElementById('chart-pekerjaan-realisasi-dl'), {
+        chart: {
+            type: 'bar',
+            height: 430,
+        },
+        fill: {
+            opacity: 1,
+        },
+        stroke: {
+            width: 2,
+            lineCap: "round",
+            curve: "straight",
+        },
+        series: [{
+                name: "Rata-rata Pekerjaan per Pegawai",
+                data: resData.pekerjaan_per_peg
             },
-            plotOptions: {
-                bar: {
-                    barHeight: '50%',
-                    horizontal: true,
-                }
+            {
+                name: "Rata-rata Realisasi per Pegawai",
+                data: resData.realisasi_per_peg
             },
-            dataLabels: {
-                enabled: false,
-            },
-            fill: {
-                opacity: 1,
-            },
-            series: [{
-                name: "Container for a Fanta",
-                data: [44, 55, 41, 37, 22, 43, 21]
-            }, {
-                name: "Strange sunglasses",
-                data: [53, 32, 33, 52, 13, 43, 32]
-            }, {
-                name: "Pen Pineapple Apple Pen",
-                data: [12, 17, 11, 9, 15, 11, 20]
-            }, {
-                name: "Binoculars",
-                data: [9, 7, 5, 8, 6, 9, 4]
-            }, {
-                name: "Magical notebook",
-                data: [25, 12, 19, 32, 25, 24, 10]
-            }],
-            grid: {
-                padding: {
-                    top: -20,
-                    right: 0,
-                    left: -4,
-                    bottom: -4
-                },
-                strokeDashArray: 4,
-            },
-            xaxis: {
-                labels: {
-                    padding: 0,
-                    formatter: function(val) {
-                        return val + "K"
-                    },
-                },
-                tooltip: {
-                    enabled: false
-                },
-                axisBorder: {
-                    show: false,
-                },
-                categories: ['2008', '2009', '2010', '2011', '2012', '2013', '2014'],
-            },
-            yaxis: {
-                labels: {
-                    padding: 4
+            {
+                name: "Rata-rata DL per Pegawai",
+                data: resData.dl_per_peg
+            }
+        ],
+        plotOptions: {
+            bar: {
+                horizontal: false,
+                dataLabels: {
+                    position: 'top',
                 },
             },
-            colors: ["#a55eea", "#5eba00", "#fab005", "#cd201f", "#206bc4"],
-            legend: {
-                show: true,
-                position: 'bottom',
-                offsetY: 12,
-                markers: {
-                    width: 10,
-                    height: 10,
-                    radius: 100,
-                },
-                itemMargin: {
-                    horizontal: 8,
-                    vertical: 8
-                },
+        },
+        dataLabels: {
+            enabled: true,
+            offsetY: -20,
+            style: {
+                fontSize: '10px',
+                colors: ['#1e293b']
             },
-        })).render();
-    });
+        },
+        grid: {
+            padding: {
+                top: -20,
+                right: 0,
+                left: -4,
+                bottom: -4
+            },
+            strokeDashArray: 4,
+        },
+        xaxis: {
+            categories: resData.labels,
+        },
+        yaxis: {
+            labels: {
+                padding: 4
+            },
+        },
+        legend: {
+            show: true,
+            position: 'bottom',
+            offsetY: 12,
+            markers: {
+                width: 10,
+                height: 10,
+                radius: 100,
+            },
+            itemMargin: {
+                horizontal: 8,
+                vertical: 8
+            },
+        },
+    })).render();
+});
 </script>
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        window.ApexCharts && (new ApexCharts(document.getElementById('chart-mentions'), {
-            chart: {
-                type: "line",
-                fontFamily: 'inherit',
-                height: 240,
-                parentHeightOffset: 0,
-                toolbar: {
-                    show: false,
-                },
-                animations: {
-                    enabled: false
-                },
+document.addEventListener("DOMContentLoaded", async function() {
+    const response = await fetch('/api/chart?type=getJumlahPegawaiPerKako')
+    const resData = (await response.json()).data
+    window.ApexCharts && (new ApexCharts(document.getElementById('chart-jumlah-pegawai'), {
+        chart: {
+            type: 'bar',
+            height: 350,
+            stacked: true,
+        },
+        fill: {
+            opacity: 1,
+        },
+        stroke: {
+            width: 2,
+            lineCap: "round",
+            curve: "straight",
+        },
+        series: [{
+                name: "Laki-laki",
+                data: resData.perempuan
+                // data: [43, 21, 18, 15, 25, 23, 16, 15, 13, 16, 9, 9, 12, 20, 8]
             },
-            fill: {
-                opacity: 1,
+            {
+                name: "Perempuan",
+                data: resData.laki
+                // data: [46, 11, 8, 10, 6, 9, 10, 4, 10, 10, 10, 5, 4, 16, 12]
+            }
+        ],
+        plotOptions: {
+            bar: {
+                horizontal: true,
             },
-            stroke: {
-                width: 2,
-                lineCap: "round",
-                curve: "straight",
+        },
+        grid: {
+            padding: {
+                top: -20,
+                right: 0,
+                left: -4,
+                bottom: -4
             },
-            series: [{
-                name: "Session Duration",
-                data: [117, 92, 94, 98, 75, 110, 69, 80, 109, 113, 115, 95]
-            }, {
-                name: "Page Views",
-                data: [59, 80, 61, 66, 70, 84, 87, 64, 94, 56, 55, 67]
-            }, {
-                name: "Total Visits",
-                data: [53, 51, 52, 41, 46, 60, 45, 43, 30, 50, 58, 59]
-            }],
-            grid: {
-                padding: {
-                    top: -20,
-                    right: 0,
-                    left: -4,
-                    bottom: -4
-                },
-                strokeDashArray: 4,
+            strokeDashArray: 4,
+        },
+        xaxis: {
+            categories: resData.labels,
+            // categories: ["1800", "1801", "1802", "1803", "1804", "1805", "1806", "1807", "1808", "1809", "1810", "1811", "1812", "1871", "1872"],
+            labels: {
+                formatter: function(val) {
+                    return val + " orang"
+                }
+            }
+        },
+        yaxis: {
+            labels: {
+                padding: 4
             },
-            xaxis: {
-                labels: {
-                    padding: 0,
-                },
-                tooltip: {
-                    enabled: false
-                },
-                type: 'datetime',
+        },
+        colors: ["#fab005", "#5eba00", "#206bc4"],
+        legend: {
+            show: true,
+            position: 'bottom',
+            offsetY: 12,
+            markers: {
+                width: 10,
+                height: 10,
+                radius: 100,
             },
-            yaxis: {
-                labels: {
-                    padding: 4
-                },
+            itemMargin: {
+                horizontal: 8,
+                vertical: 8
             },
-            labels: [
-                '2020-06-21', '2020-06-22', '2020-06-23', '2020-06-24', '2020-06-25', '2020-06-26', '2020-06-27', '2020-06-28', '2020-06-29', '2020-06-30', '2020-07-01', '2020-07-02'
-            ],
-            colors: ["#fab005", "#5eba00", "#206bc4"],
-            legend: {
-                show: true,
-                position: 'bottom',
-                offsetY: 12,
-                markers: {
-                    width: 10,
-                    height: 10,
-                    radius: 100,
-                },
-                itemMargin: {
-                    horizontal: 8,
-                    vertical: 8
-                },
-            },
-        })).render();
-    });
+        },
+    })).render();
+});
 </script>
