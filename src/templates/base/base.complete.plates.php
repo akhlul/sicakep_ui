@@ -93,6 +93,80 @@
                                 </div>
                             </div>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
+                                <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                    <i class="fs-2 ti ti-package"></i>
+                                </span>
+                                <span class="nav-link-title">
+                                    Presensi Kaizala
+                                </span>
+                            </a>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-menu-columns">
+                                    <div class="dropdown-menu-column">
+                                        <a class="dropdown-item text-wrap" href="/attendance/import">
+                                            Import Presensi dari PBD
+                                        </a>
+                                        <a class="dropdown-item" href="/attendance/collection">
+                                            Daftar Presensi
+                                        </a>
+                                        <a class="dropdown-item" href="/attendance/status">
+                                            Rekap Status Presensi
+                                        </a>
+                                        <!-- <div class="dropend">
+                                            <a class="dropdown-item dropdown-toggle" href="#sidebar-authentication" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
+                                                Presensi Dinas Luar
+                                            </a>
+                                            <div class="dropdown-menu">
+                                                <a href="./sign-in.html" class="dropdown-item text-wrap">
+                                                    Daftar Presensi Dinas Luar
+                                                </a>
+                                                <a href="./sign-up.html" class="dropdown-item text-wrap">
+                                                    Rekap Presensi Dinas Luar
+                                                </a>
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
+                                <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                    <i class="fs-2 ti ti-package"></i>
+                                </span>
+                                <span class="nav-link-title">
+                                    Master Pekerjaan
+                                </span>
+                            </a>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-menu-columns">
+                                    <div class="dropdown-menu-column">
+                                        <a class="dropdown-item" href="/master/work/collection">
+                                            Daftar Master Pekerjaan
+                                        </a>
+                                        <a class="dropdown-item" href="/master/work/propose">
+                                            Usulan Master Pekerjaan
+                                        </a>
+                                        <a class="dropdown-item" href="/master/work/advanced">
+                                            Lanjutan Master Pekerjaan
+                                            <!-- <span class="badge badge-sm bg-green text-uppercase ms-2">New</span> -->
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/master/employee">
+                                <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                    <i class="fs-2 ti ti-smart-home"></i>
+                                </span>
+                                <span class="nav-link-title">
+                                    Master Pegawai
+                                </span>
+                            </a>
+                        </li>
                         <li class="nav-item dropdown <?= $this->uri(1, "entry", "active") ?>">
                             <a class="nav-link dropdown-toggle" data-bs-menu="entry" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="true">
                                 <span class="nav-link-icon d-md-none d-lg-inline-block">
@@ -150,6 +224,30 @@
                                     <i class="fs-2 ti ti-package"></i>
                                 </span>
                                 <span class="nav-link-title">
+                                    Monitoring Laporan
+                                </span>
+                            </a>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-menu-columns">
+                                    <div class="dropdown-menu-column">
+                                        <!-- NOTE: rekappenilaianckp.php -->
+                                        <a class="dropdown-item" href="/monitor/employee-progress">
+                                            Progress per Pegawai
+                                        </a>
+                                        <!-- NOTE: rekapperpekerjaan.php -->
+                                        <a class="dropdown-item" href="/monitor/work-progress">
+                                            Progress per Pekerjaan
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
+                                <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                    <i class="fs-2 ti ti-package"></i>
+                                </span>
+                                <span class="nav-link-title">
                                     Matriks Dinas Luar
                                 </span>
                             </a>
@@ -172,6 +270,27 @@
                                 </div>
                             </div>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/plugins/zoom">
+                                <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                    <i class="fs-2 ti ti-smart-home"></i>
+                                </span>
+                                <span class="nav-link-title">
+                                    Manajemen Zoom Meeting
+                                </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/configure">
+                                <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                    <i class="fs-2 ti ti-smart-home"></i>
+                                </span>
+                                <span class="nav-link-title">
+                                    Pengaturan
+                                </span>
+                            </a>
+                        </li>
+
 
                         <!-- Other -->
                         <!-- <li class="nav-item">

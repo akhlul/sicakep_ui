@@ -15,7 +15,7 @@
                 </h2>
             </div>
             <!-- Page title actions -->
-            <div class="col-12 col-md-auto ms-auto d-print-none">
+            <!-- <div class="col-12 col-md-auto ms-auto d-print-none">
                 <div class="btn-list">
                     <span class="d-none d-sm-inline">
                         <a href="#" class="btn btn-white">
@@ -30,7 +30,7 @@
                         <i class="ti ti-plus"></i>
                     </a>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>
@@ -39,7 +39,11 @@
     <div class="container-xl">
         <div class="row row-deck row-cards">
 
-            <div class="col-12">
+            <div class="col-12 alert alert-warning" role="alert">
+                Sistem masih pada tahapan re-impementasi. Sistem akan dilakukan perbaikan secara bertahap. Mohon maaf atas ketidaknyamanannya.
+            </div>
+
+            <!-- <div class="col-12">
                 <div class="row row-cards">
                     <div class="col-sm-6 col-lg-3">
                         <div class="card card-sm">
@@ -125,7 +129,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <div class="col-lg-12">
                 <div class="card">
