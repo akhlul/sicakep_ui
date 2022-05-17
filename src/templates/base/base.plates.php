@@ -36,12 +36,12 @@
                             </div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                            <a href="#" class="dropdown-item">Set status</a>
+                            <!-- <a href="#" class="dropdown-item">Set status</a>
                             <a href="#" class="dropdown-item">Profile &amp; account</a>
                             <a href="#" class="dropdown-item">Feedback</a>
                             <div class="dropdown-divider"></div>
-                            <a href="#" class="dropdown-item">Settings</a>
-                            <a href="#" class="dropdown-item">Logout</a>
+                            <a href="#" class="dropdown-item">Settings</a> -->
+                            <a href="/logout" class="dropdown-item">Logout</a>
                         </div>
                     </div>
                 </div>
@@ -53,7 +53,7 @@
                                 <span class="avatar" style="background-image: url(<?= $session->get('avatar') ?>)"></span>
                                 <div class="d-none d-xl-block ps-2">
                                     <div><?= $session->get('nama') ?></div>
-                                    <div class="mt-1 small text-muted">Pranata Komputer Ahli Muda</div>
+                                    <div class="mt-1 small text-muted"><?= $session->get('jabatan') ?></div>
                                 </div>
                             </a>
                         </li>
@@ -85,15 +85,17 @@
                                         <a class="dropdown-item" href="/dailyreport/collection">
                                             Lihat Laporan Pegawai
                                         </a>
+                                        <?php if ($session->get('eselon') <= 4 && $session->get('level_user') == 2) : ?>
                                         <a class="dropdown-item" href="/dailyreport/summary">
                                             Rekap Laporan Harian
                                             <!-- <span class="badge badge-sm bg-green text-uppercase ms-2">New</span> -->
                                         </a>
+                                        <?php endif ?>
                                     </div>
                                 </div>
                             </div>
                         </li>
-                        <li class="nav-item dropdown <?= $this->uri(1, "entry", "active") ?>">
+                        <!-- <li class="nav-item dropdown <?= $this->uri(1, "entry", "active") ?>">
                             <a class="nav-link dropdown-toggle" data-bs-menu="entry" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="true">
                                 <span class="nav-link-icon d-md-none d-lg-inline-block">
                                     <i class="fs-2 ti ti-package"></i>
@@ -107,12 +109,12 @@
                                     <div class="dropdown-menu-column">
                                         <a class="dropdown-item <?= $this->uri("/entry/target", "active") ?>" href="/entry/target">
                                             Entri Target/ Penugasan
-                                        </a>
-                                        <!-- CHANGEME: Digabung ke Entri Target Penugasan saja -->
-                                        <a class="dropdown-item" <?= $this->uri("/entry/target/collective", "active") ?>" href="/entry/target/collective">
+                                        </a> -->
+                        <!-- CHANGEME: Digabung ke Entri Target Penugasan saja -->
+                        <!-- <a class="dropdown-item" <?= $this->uri("/entry/target/collective", "active") ?>" href="/entry/target/collective">
                                             Entri Kolektif
-                                        </a>
-                                        <a class="dropdown-item" <?= $this->uri("/entry/report", "active") ?>" href="/entry/report">
+                                        </a> -->
+                        <!-- <a class="dropdown-item" <?= $this->uri("/entry/report", "active") ?>" href="/entry/report">
                                             Entri Laporan/ Realisasi
                                         </a>
                                         <a class="dropdown-item" <?= $this->uri("/entry/grade", "active") ?>" href="/entry/grade">
@@ -121,8 +123,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </li>
-                        <li class="nav-item dropdown <?= $this->uri(1, "print", "active") ?>">
+                        </li> -->
+                        <!-- <li class="nav-item dropdown <?= $this->uri(1, "print", "active") ?>">
                             <a class=" nav-link dropdown-toggle" data-bs-menu="print" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
                                 <span class="nav-link-icon d-md-none d-lg-inline-block">
                                     <i class="fs-2 ti ti-package"></i>
@@ -143,8 +145,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </li>
-                        <li class="nav-item dropdown">
+                        </li> -->
+                        <!-- <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
                                 <span class="nav-link-icon d-md-none d-lg-inline-block">
                                     <i class="fs-2 ti ti-package"></i>
@@ -171,7 +173,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </li>
+                        </li> -->
 
                         <!-- Other -->
                         <!-- <li class="nav-item">

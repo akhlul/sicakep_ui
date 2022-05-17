@@ -47,7 +47,7 @@ if ($result) {
     )->execute([
         'username' => $app_session->get('username'),
         'date' => date("Y-m-d H:i:s"),
-        'remote_address' => $_SERVER['REMOTE_ADDR']
+        'remote_address' => $_SERVER['HTTP_HOST']
     ]);
 
     // echo PdoDebugger::show(

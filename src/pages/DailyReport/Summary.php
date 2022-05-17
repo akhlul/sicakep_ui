@@ -78,34 +78,7 @@ function generate_bulan_absen($tanggal_Ymd) {
     return $arr_absen;
 }
 
-// function generate_bulan_absen(String $bulan, String $tahun)
-// {
-//     $arr_generated_bulan = [];
-
-//     for ($tanggal = 1; $tanggal < 31; $tanggal++) {
-//         if (in_array($bulan, ["April", "Juni", "September", "November"])) {
-//             if ($tanggal > 30) break;
-//         }
-//         if ($bulan == "Februari") {
-//             if ($tanggal > 28) break;
-//         }
-//         $two_digit_bulan =  bulanTo2Digit($bulan);
-//         $two_digit_tanggal = substr("0" . $tanggal, -2);
-//         $arr_generated_bulan[] = [
-//             "" . $two_digit_tanggal . " " . $bulan,   // 01 Januari
-//             $tahun . "-" . $two_digit_bulan . "-" .  $two_digit_tanggal,
-//             "pagi" . $two_digit_tanggal . $two_digit_bulan,
-//             "sore" . $two_digit_tanggal . $two_digit_bulan,
-//             "0",
-//             "0",
-//             "1"
-//         ];
-//     }
-//     return $arr_generated_bulan;
-// }
-
 $mei = generate_bulan_absen( $app_session->getSet('summary-bulan-absen', '2022-01-01') );
-// dd($mei);
 
 $jmltgl = count($mei);
 
