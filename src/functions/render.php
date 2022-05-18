@@ -11,10 +11,18 @@ $templates->loadExtension(new League\Plates\Extension\URI(BASE_URL));
 
 $templates->addFolder('base', './src/templates/base');
 
+
+/**
+ * $this->assets("css/tabler.min.css") => /assets/css/tabler.min.css
+ */
 $templates->registerFunction('assets', function ($str) {
     return "/assets/" . $str;
 });
 
+/**
+ * $this->compare("A", "A", "Berhasil", "Gagal) => Berhasil
+ * $this->compare("A", "B", "Berhasil", "Gagal) => Gagal
+ */
 $templates->registerFunction('compare', function ($str1, $str2, $ifmatch, $ifnotmatch = "") {
     if($str1 == $str2) {
         return $ifmatch;
@@ -23,11 +31,11 @@ $templates->registerFunction('compare', function ($str1, $str2, $ifmatch, $ifnot
     }
 });
 
-
-
-
-$templates->registerFunction('moment', function ($str) {
+/**
+ * $this->moment('2022-01-01', 'l, j F Y) => Sabtu, 1 Januari 2022
+ */
+$templates->registerFunction('moment', function ($str, $format = "l, j F Y") {
     Moment::setLocale('id_ID');
     $mom = new Moment($str, 'ASIA/JAKARTA');
-    return $mom->format("l, j F Y");
+    return $mom->format($format);
 });

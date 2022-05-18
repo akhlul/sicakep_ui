@@ -79,19 +79,6 @@ function bulanTo2Digit($bln){
 
 
 
-function namaseksi($seksi){
-    switch ($seksi) {
-        case 1: return "Tata_Usaha";break;
-        case 2: return "Sosial";break;
-        case 3: return "Produksi";break;
-        case 4: return "Distribusi";break;
-        case 5: return "Neraca";break;
-        case 6: return "IPDS";break;
-        case 7: return "KSK";break;
-        default: return "";
-    }
-}
-
 function jmlhari($bln){
     switch ($bln) {
         case '01': return 31;break;
@@ -122,60 +109,6 @@ function level($lvl){
     }
 }
 
-function satuan($satuan){
-    switch ($satuan) {
-        case 0: return "_undefined";break;
-        case 1: return "Blok_Sensus";break;
-        case 2: return "Dokumen";break;
-        case 3: return "Rumah_Tangga";break;
-        case 4: return "Kegiatan";break;
-        case 5: return "Paket";break;
-        case 6: return "Perusahaan";break;
-        case 7: return "Responden";break;
-        case 8: return "Publikasi";break;
-        case 9: return "Surat";break;
-        case 10: return "Daftar";break;
-        case 11: return "Kunjungan";break;
-        case 12: return "Peta";break;
-        case 13: return "Plot Bidang Ubinan";break;
-        case 14: return "Laporan";break;
-        case 15: return "Tabel";break;
-        case 16: return "Naskah";break;
-        case 17: return "File";break;
-        case 18: return "Kabupaten/Kota";break;
-        case 19: return "Jam";break;
-        case 20: return "BRS";break;
-        case 21: return "Buku";break;
-        case 22: return "Eksemplar";break;
-        case 23: return "Pertemuan";break;
-        case 24: return "Database";break;
-        case 25: return "O-P";break;
-        case 26: return "Kali";break;
-        case 27: return "Komoditas";break;
-        case 28: return "Instansi";break;
-        case 29: return "Peserta";break;
-        case 30: return "Kode";break;
-        case 31: return "Pegawai";break;
-        case 32: return "Transaksi";break;
-        case 33: return "Satuan Kerja";break;
-        case 34: return "Objek";break;
-        case 35: return "Orang";break;
-        case 36: return "Topik";break;
-        case 37: return "Jenis Dokumen";break;
-        case 38: return "Asosiasi";break;
-        case 39: return "Sistem/Aplikasi";break;
-        default: return 0;
-    }
-}
-
-function waktu($waktu){
-    switch ($waktu) {
-        case 1: return "Hari";break;
-        case 2: return "Jam";break;
-        case 3: return "Menit";break;
-        default: return 0;
-    }
-}
 
 function eselon($eselon){
     switch ($eselon) {
@@ -191,4 +124,195 @@ function getnama($id){
     $nama="";
     $querry="select nama from pegawai where id='".$id."'";
     return $querry;
+}
+
+
+/**
+ *  Utility class
+ */
+class Ut
+{
+
+    /**
+     * utility: kode seksi ke nama seksi
+     */
+    public static function get_nama_seksi($kode) 
+    {
+        switch ($kode) {
+            case 1:
+                return "Tata_Usaha";
+                break;
+            case 2:
+                return "Sosial";
+                break;
+            case 3:
+                return "Produksi";
+                break;
+            case 4:
+                return "Distribusi";
+                break;
+            case 5:
+                return "Neraca";
+                break;
+            case 6:
+                return "IPDS";
+                break;
+            case 7:
+                return "KSK";
+                break;
+            default:
+                return "";
+        }
+    }
+
+    /**
+     * utility: kode satuan volume ke satuan volume
+     */
+    public static function get_satuan_volume($kode_satuan)
+    {
+        switch ($kode_satuan) {
+            case 0:
+                return "_undefined";
+                break;
+            case 1:
+                return "Blok_Sensus";
+                break;
+            case 2:
+                return "Dokumen";
+                break;
+            case 3:
+                return "Rumah_Tangga";
+                break;
+            case 4:
+                return "Kegiatan";
+                break;
+            case 5:
+                return "Paket";
+                break;
+            case 6:
+                return "Perusahaan";
+                break;
+            case 7:
+                return "Responden";
+                break;
+            case 8:
+                return "Publikasi";
+                break;
+            case 9:
+                return "Surat";
+                break;
+            case 10:
+                return "Daftar";
+                break;
+            case 11:
+                return "Kunjungan";
+                break;
+            case 12:
+                return "Peta";
+                break;
+            case 13:
+                return "Plot Bidang Ubinan";
+                break;
+            case 14:
+                return "Laporan";
+                break;
+            case 15:
+                return "Tabel";
+                break;
+            case 16:
+                return "Naskah";
+                break;
+            case 17:
+                return "File";
+                break;
+            case 18:
+                return "Kabupaten/Kota";
+                break;
+            case 19:
+                return "Jam";
+                break;
+            case 20:
+                return "BRS";
+                break;
+            case 21:
+                return "Buku";
+                break;
+            case 22:
+                return "Eksemplar";
+                break;
+            case 23:
+                return "Pertemuan";
+                break;
+            case 24:
+                return "Database";
+                break;
+            case 25:
+                return "O-P";
+                break;
+            case 26:
+                return "Kali";
+                break;
+            case 27:
+                return "Komoditas";
+                break;
+            case 28:
+                return "Instansi";
+                break;
+            case 29:
+                return "Peserta";
+                break;
+            case 30:
+                return "Kode";
+                break;
+            case 31:
+                return "Pegawai";
+                break;
+            case 32:
+                return "Transaksi";
+                break;
+            case 33:
+                return "Satuan Kerja";
+                break;
+            case 34:
+                return "Objek";
+                break;
+            case 35:
+                return "Orang";
+                break;
+            case 36:
+                return "Topik";
+                break;
+            case 37:
+                return "Jenis Dokumen";
+                break;
+            case 38:
+                return "Asosiasi";
+                break;
+            case 39:
+                return "Sistem/Aplikasi";
+                break;
+            default:
+                return 0;
+        }
+    }
+
+    /**
+     * utility: kode waktu ke satuan waktu
+     */
+    public static function get_satuan_waktu($kode_satuan)
+    {
+        switch ($kode_satuan) {
+            case 1:
+                return "Hari";
+                break;
+            case 2:
+                return "Jam";
+                break;
+            case 3:
+                return "Menit";
+                break;
+            default:
+                return 0;
+        }
+    }
 }
