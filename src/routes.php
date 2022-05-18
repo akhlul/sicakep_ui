@@ -21,7 +21,7 @@ route('GET', '/api/chart', "page#API#ChartData");
 
 route('ALL', '/dailyreport/:all', "group#", function ($r) {
     route('GET',  '/dailyreport/entry',             "page#DailyReport#Entry");
-    route('POST', '/dailyreport/entry',            "page#DailyReport#Entry#Create");
+    route('POST', '/dailyreport/entry',             "page#DailyReport#Entry#Create");
     route('GET',  '/dailyreport/entry/:num',        "page#DailyReport#Entry#Edit");
     route('POST', '/dailyreport/entry/:num',        "page#DailyReport#Entry#Update");
     route('GET',  '/dailyreport/entry/:num/delete', "page#DailyReport#Entry#Remove");
@@ -38,14 +38,6 @@ route('ALL', '/attendance/:all', "group#", function ($r) {
     route('GET', '/attendance/status', "page#Attendance#StatusSummary");
 });
 
-
-route('ALL', '/attendance/:all', "group#", function ($r) {
-    route('GET', '/attendance/import', "page#Attendance#ImportFromPBD");
-    route('GET', '/attendance/collection', "page#Attendance#Collection");
-    route('GET', '/attendance/status', "page#Attendance#StatusSummary");
-});
-
-
 route('ALL', '/master/work/:all', "group#", function ($r) {
     route('GET', '/master/work/collection', "page#Master#Work#Collection");
     route('GET', '/master/work/propose', "page#Master#Work#Propose");
@@ -55,7 +47,12 @@ route('ALL', '/master/work/:all', "group#", function ($r) {
 route('ALL', '/master/employee', "page#Master#Employee#Collection");
 
 route('ALL', '/entry/:all', "group#", function ($r) {
-    route('GET', '/entry/target', "page#Entry#Target");
+    route('GET',  '/entry/target',          "page#Entry#Target");
+    route('POST', '/entry/target',          "page#Entry#Target#Create"); 
+    route('GET',  '/entry/target/fetch/',   "page#Entry#Target#Fetch"); //htmx
+
+
+
     route('GET', '/entry/target/collective', "page#Entry#TargetCollective");
     route('GET', '/entry/report', "page#Entry#Report");
     route('GET', '/entry/grade', "page#Entry#Grade");
