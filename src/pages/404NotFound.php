@@ -8,7 +8,7 @@
 $data_template = array_merge(
     [
         'head' => [
-            'head_title' => "Beranda - SICAKEP",
+            'head_title' => "404 Not Found - SICAKEP",
             'session' => $app_session
         ],
         'session' => $app_session
@@ -17,4 +17,5 @@ $data_template = array_merge(
     []
 );
 
-echo $templates->render('home', $data_template);
+header("HTTP/1.0 404 Not Found");
+echo $templates->render('404', $data_template);

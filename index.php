@@ -8,7 +8,7 @@ include_once __DIR__ . '/vendor/autoload.php';
  * Reading environment configurations
  */
 $dotenv = \Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->safeLoad();
+$dotenv->load();
 
 error_reporting(E_ALL);
 

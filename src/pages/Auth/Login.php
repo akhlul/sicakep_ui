@@ -12,7 +12,7 @@ if ($app_session->get("username")) {
 $data_template = array_merge(
    [
         'head' => [
-            'head_title' => "Masuk - SICAKEP"
+            'head_title' => "" . $_ENV['ENV'] . " - Masuk - SICAKEP"
         ],
 
         'session' => $app_session

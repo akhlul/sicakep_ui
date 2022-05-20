@@ -114,7 +114,7 @@ if ($app_session->get('bidang') > 0 && $app_session->get('bidang') <= 6) {
                             WHERE LEVEL = 4
                                 AND approved = 1
                             ORDER BY uraian ";
-    $nama_pekerjaan_list = $db->query()->fetchAll(PDO::FETCH_OBJ);
+    $nama_pekerjaan_list = $db->query($nama_pekerjaan_sql)->fetchAll(PDO::FETCH_OBJ);
 }
 
 
@@ -148,7 +148,7 @@ $penugasan_sql = "SELECT *
 $stmt = $db->prepare($penugasan_sql);
 $stmt->execute([
     "id_pegawai" => $app_session->getSet('target-id-pegawai', $app_session->get('id')),
-    "bulan" => BULAN_PAIR[$app_session->getSet("target-bulan", 1)][0],
+    "bulan" => BULAN_PAIR[ (int) $app_session->getSet("target-bulan", 1) ][0],
     "tahun" => $app_session->getSet('target-tahun', "2022")
 ]);
 $penugasan_list = $stmt->fetchAll(PDO::FETCH_OBJ);

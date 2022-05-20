@@ -11,6 +11,31 @@ $templates->loadExtension(new League\Plates\Extension\URI(BASE_URL));
 
 $templates->addFolder('base', './src/templates/base');
 
+/**
+ * Dev: 
+ * Register DebugBar
+ */
+$templates->registerFunction('debugbarRenderer', function ($str) {
+    include "./src/functions/debugbar.php";
+    if ($_SERVER['ENV'] != 'production') {
+        if ($str == "renderHead") {
+            return $debugbarRenderer->renderHead();
+        }
+        if ($str == "render") {
+            return $debugbarRenderer->render();
+        }
+    } else {
+        return "";
+    }
+});
+
+
+/**
+ * $this->moment('2022-01-01', 'l, j F Y) => Sabtu, 1 Januari 2022
+ */
+$templates->registerFunction('env', function ($str) {
+    return $_ENV[$str];
+});
 
 /**
  * $this->assets("css/tabler.min.css") => /assets/css/tabler.min.css

@@ -15,18 +15,3 @@ require_once "./src/functions/utilities.php";
  */
 
 date_default_timezone_set('Asia/Jakarta');
-
-
-/**
- * Dev: Register DebugBar
- * 
- */
-$templates->registerFunction('debugbarRenderer', function ($str) {
-    include "./src/functions/debugbar.php";
-    if ($str == "renderHead") {
-        return $debugbarRenderer->renderHead();
-    }
-    if ($str == "render") {
-        return $debugbarRenderer->render();
-    }
-});

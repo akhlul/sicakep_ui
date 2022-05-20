@@ -10,6 +10,11 @@
 
     <link rel="stylesheet" href="<?= $this->assets('css/tabler.min.css') ?>">
     <link rel="stylesheet" href="<?= $this->assets('iconfont/tabler-icons.min.css') ?>">
+    <style>
+    body {
+        background-image: url('https://infoasn.id/wp-content/uploads/2021/10/background.webp');
+    }
+    </style>
 </head>
 
 <body class="">
@@ -17,6 +22,7 @@
     <?= $this->section('content') ?>
 
     <?= $this->debugbarRenderer("render") ?>
+
     <script type=module src="<?= $this->assets('js/tabler.esm.js') ?>"></script>
 </body>
 

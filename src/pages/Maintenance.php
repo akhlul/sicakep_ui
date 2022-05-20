@@ -8,7 +8,7 @@
 $data_template = array_merge(
     [
         'head' => [
-            'head_title' => "Beranda - SICAKEP",
+            'head_title' => "Website is on Maintenance - SICAKEP",
             'session' => $app_session
         ],
         'session' => $app_session
@@ -17,4 +17,4 @@ $data_template = array_merge(
     []
 );
 
-echo $templates->render('home', $data_template);
+echo $templates->render('maintenance', $data_template);
